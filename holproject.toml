@@ -25,6 +25,7 @@ roots = [
   "elliptic/instances/pairing/pairingTwistInstancesScript.sml",
   "elliptic/instances/prime_field/bls12381CardinalityScript.sml",
   "elliptic/instances/pairing/bn254TwistCardinalityScript.sml",
+  "elliptic/instances/pairing/bls12381TwistCardinalityCertificatesScript.sml",
   "elliptic/instances/pairing/bls12381TwistCardinalityScript.sml",
   "elliptic/instances/prime_field/secp256k1EndomorphismScript.sml",
   "elliptic/instances/pairing/pairingTwistMorphismsScript.sml",
