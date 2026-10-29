@@ -1,0 +1,40 @@
+[holbuild]
+minimum_version = "0.11.3"
+
+[project]
+name = "hol4-algebra"
+version = "0.1.0"
+
+[build]
+members = ["certificates", "fields", "groups", "elliptic"]
+roots = [
+  "elliptic/core/shortWeierstrassScript.sml",
+  "groups/shortWeierstrassGroupScript.sml",
+  "elliptic/core/shortWeierstrassProjectiveScript.sml",
+  "groups/ellipticTorsionScript.sml",
+  "elliptic/morphisms/ellipticMorphismsScript.sml",
+  "elliptic/core/shortWeierstrassSmallScript.sml",
+  "fields/namedPrimeFieldsScript.sml",
+  "fields/pairingQuadraticFieldsScript.sml",
+  "fields/pairingDegree12FieldsScript.sml",
+  "elliptic/instances/prime_field/secp256k1InstanceScript.sml",
+  "elliptic/instances/prime_field/p256InstanceScript.sml",
+  "elliptic/instances/prime_field/bn254G1InstanceScript.sml",
+  "elliptic/instances/prime_field/bls12381G1InstanceScript.sml",
+  "elliptic/instances/prime_field/cofactorOneInstancesScript.sml",
+  "elliptic/instances/pairing/pairingTwistInstancesScript.sml",
+  "elliptic/instances/prime_field/bls12381CardinalityScript.sml",
+  "elliptic/instances/pairing/bn254TwistCardinalityScript.sml",
+  "elliptic/instances/pairing/bls12381TwistCardinalityScript.sml",
+  "elliptic/instances/prime_field/secp256k1EndomorphismScript.sml",
+  "elliptic/instances/pairing/pairingTwistMorphismsScript.sml",
+]
+
+[dependencies.hol]
+git = "https://github.com/HOL-Theorem-Prover/HOL.git"
+rev = "652d1f0aad5cd537ed1e5d470ba3444e70ba470e"
+
+[dependencies.holexamples]
+from = "hol"
+path = "."
+manifest = "holexamples.manifest.toml"

@@ -1,0 +1,69 @@
+structure primeCertificateLib :> primeCertificateLib =
+struct
+
+open HolKernel boolLib bossLib Conv
+
+type certificate = string * string * (string * int) list
+
+val ERR = mk_HOL_ERR "primeCertificateLib"
+val numeral = numSyntax.mk_numeral o Arbnum.fromString
+
+fun PRIME_CERT_CONV certificates =
+  let
+    val cache = ref [("2",dividesTheory.PRIME_2),
+                     ("3",dividesTheory.PRIME_3)]
+    fun find n [] = raise ERR "PRIME_CERT_CONV"
+          ("Missing certificate data for " ^ n)
+      | find n ((m,a,fs)::rest) =
+          if n = m then (a,fs) else find n rest
+    fun prime n =
+      case List.find (fn (m,_) => n = m) (!cache) of
+        SOME (_,th) => th
+      | NONE =>
+        let
+          val (a,factors) = find n certificates
+          val n_value = Arbnum.fromString n
+          fun repeat (q,e) =
+            if e <= 0 then raise ERR "PRIME_CERT_CONV"
+              "Factor multiplicities must be positive"
+            else
+              let val q_value = Arbnum.fromString q
+              in
+                if Arbnum.< (q_value,n_value) then
+                  let val q_term = numSyntax.mk_numeral q_value
+                  in List.tabulate (e, fn _ => q_term) end
+                else raise ERR "PRIME_CERT_CONV"
+                  "Factors must be smaller than the candidate prime"
+              end
+          val fs = listSyntax.mk_list
+            (List.concat (map repeat factors),numSyntax.num)
+          val proofs = map (prime o #1) factors
+          val rule = SPECL [numSyntax.mk_numeral n_value,numeral a,fs]
+            primeCertificateTheory.prime_certificate_check
+          val premise = fst (dest_imp (concl rule))
+          val checked = TAC_PROOF (([],premise),
+            REWRITE_TAC
+              ([listTheory.EVERY_DEF,combinatoricsTheory.PROD] @ proofs) THEN
+            CONV_TAC (DEPTH_CONV BETA_CONV) THEN
+            CONV_TAC (DEPTH_CONV
+              (fn tm =>
+                if numSyntax.is_mod tm andalso
+                   numSyntax.is_exp (fst (numSyntax.dest_mod tm))
+                then certificateComputeLib.MODPOW_CONV tm
+                else raise UNCHANGED)
+              THENC certificateComputeLib.NAT_CONV) THEN
+            REWRITE_TAC [])
+          val th = MP rule checked
+          val _ = cache := (n,th) :: !cache
+        in th end
+  in
+    fn tm =>
+      let
+        val (head,args) = strip_comb tm
+        val _ = same_const head ``divides$prime`` andalso length args = 1
+          orelse raise ERR "PRIME_CERT_CONV" "Expected prime numeral"
+        val n = Arbnum.toString (numSyntax.dest_numeral (hd args))
+      in EQT_INTRO (prime n) end
+  end
+
+end

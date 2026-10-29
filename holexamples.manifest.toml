@@ -1,0 +1,15 @@
+[holbuild]
+minimum_version = "0.11.3"
+
+[project]
+name = "holexamples"
+version = "0.1.0"
+
+[build]
+members = [
+  "examples/algebra/field",
+  "examples/algebra/finitefield",
+  "examples/algebra/linear",
+  "examples/algebra/polynomial",
+  "examples/algebra/ring",
+]

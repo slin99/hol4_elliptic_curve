@@ -1,0 +1,9 @@
+all: $(patsubst %Script.sml,%Theory.uo,$(wildcard certificates/*/*Script.sml fields/*Script.sml groups/*Script.sml elliptic/*/*Script.sml elliptic/instances/*/*Script.sml))
+
+.PHONY: all
+
+INCLUDES = $(HOLDIR)/examples/algebra/field \
+           $(HOLDIR)/examples/algebra/finitefield \
+           $(HOLDIR)/examples/algebra/linear \
+           $(HOLDIR)/examples/algebra/polynomial \
+           $(HOLDIR)/examples/algebra/ring

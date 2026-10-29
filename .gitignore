@@ -1,0 +1,9 @@
+*Theory.sig
+*Theory.sml
+*Theory.dat
+*.ui
+*.uo
+.holobjs
+.hollogs
+.hol/
+.holbuild
