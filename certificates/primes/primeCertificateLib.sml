@@ -1,3 +1,11 @@
+(* Recursive Lucas certificate checker; see primeCertificateLib.sig.
+   PRIME_CERT_CONV data evaluates prime <numeral> to T with a kernel theorem.
+   A certificate supplies decimal n, a witness, and prime factors of n-1 with
+   positive multiplicities. Supply certificates for subsidiary primes too;
+   2 and 3 are built in. Each constructed converter caches successful primality
+   proofs, not unchecked data. Missing factors/certificates or failed arithmetic
+   obligations prevent construction of the claimed proof. *)
+
 structure primeCertificateLib :> primeCertificateLib =
 struct
 

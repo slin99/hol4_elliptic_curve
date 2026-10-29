@@ -1,3 +1,34 @@
+(* ------------------------------------------------------------------------- *)
+(* The Short-Weierstrass Group Law                                           *)
+(* ------------------------------------------------------------------------- *)
+(*
+   Documentation
+
+   Chord-and-tangent addition on sw_point, packaged as an existing HOL group
+   record, not a separate elliptic-curve algebra hierarchy.
+
+   Definitions:
+     sw_neg_def       Negate the y-coordinate; fix ECInfinity.
+     sw_slope_def     Tangent or secant slope using field inverses.
+     sw_add_x_def, sw_add_y_def, sw_add_def
+                      Coordinate formulas, with infinity and inverse cases.
+     sw_group_def     Carrier sw_points, identity ECInfinity, operation sw_add.
+
+   Main results:
+     short_weierstrass_group, short_weierstrass_abelian_group
+                      ShortWeierstrassCurve r a b implies a (commutative) group.
+     short_weierstrass_finite_group
+                      FiniteField additionally gives FiniteAbelianGroup.
+     sw_group_carrier, sw_group_id, sw_group_op, sw_group_inv
+                      Connect record operations to the curve interface.
+     sw_ring_ops, sw_field_prod_inv, sw_field_prod_inv_eq
+                      Bridges used by coordinate and certificate proofs.
+
+   Definitions are total; group laws and inverse facts require the curve and
+   point-membership hypotheses in their statements. Scalar multiplication
+   uses (sw_group r a b).exp; see ellipticTorsion.
+*)
+
 Theory shortWeierstrassGroup
 Ancestors
   shortWeierstrass

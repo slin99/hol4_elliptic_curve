@@ -1,3 +1,24 @@
+(* ------------------------------------------------------------------------- *)
+(* Worked Example: y^2 = x^3 + 1 over GF 5                                    *)
+(* ------------------------------------------------------------------------- *)
+(*
+   Documentation
+
+   A small concrete example of the generic curve, group, torsion, projective
+   and field-map interfaces. It also transports the curve through the
+   isomorphic option-valued field ring_inj_image (GF 5) SOME.
+
+   Point set and group:
+     sw_GF5_curve, sw_GF5_points, sw_GF5_card, sw_GF5_finite_group.
+   Scalars and subgroups:
+     sw_GF5_scalar_six, sw_GF5_order_divides_six.
+     sw_GF5_generator_order, sw_GF5_generated   (2,2) generates all six points.
+     sw_GF5_cofactor_subgroups, sw_GF5_torsion_three.
+   Transport:
+     sw_GF5_option_field, sw_GF5_option_curve, sw_GF5_option_group_iso,
+       sw_GF5_option_generator_order.
+*)
+
 Theory shortWeierstrassSmall
 Ancestors
   shortWeierstrass shortWeierstrassGroup shortWeierstrassProjective

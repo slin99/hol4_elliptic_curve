@@ -1,3 +1,23 @@
+(* -------------------------------------------------------------------------
+   Named prime fields
+
+   Documentation
+   Definitions of the base moduli p and scalar moduli n for secp256k1,
+   P-256, BN254 and BLS12-381, and their GF field records. Elements of GF p
+   are natural-number residues less than p; scalar fields use n instead.
+
+   Public interface
+   - secp256k1_p_prime, p256_p_prime, bn254_p_prime, bls12381_p_prime,
+     and the corresponding *_n_prime theorems establish primality.
+   - For each prefix secp256k1, p256, bn254, bls12381, the definitions
+     *_base_field_def and *_scalar_field_def name the records; theorems
+     ending in _field, _finite_field, _card and _char describe them.
+
+   Lucas certificate data are proposals, not axioms. primeCertificateLib
+   checks the recursive primality, factorisation and modular obligations.
+   Naming a scalar modulus here does not itself prove a curve's order.
+   ------------------------------------------------------------------------- *)
+
 Theory namedPrimeFields
 Ancestors
   primeCertificate fieldInstances divides

@@ -1,3 +1,23 @@
+(* P-256: affine curve and standard prime-order generator.
+
+   Documentation
+   Coordinates are natural-number residues in p256_base_field; ECAffine
+   and ECInfinity represent the points. The coefficient a = p256_p - 3
+   represents -3. namedPrimeFields supplies the base and scalar fields.
+
+   Definitions: p256_a_def, p256_b_def, p256_generator_def,
+   p256_group_def (all rational points), p256_subgroup_def (Generated
+   by the standard generator).
+
+   Curve and membership: p256_curve, p256_generator_member,
+   p256_finite_group.
+   Generator and subgroup: p256_generator_annihilated,
+   p256_generator_order, p256_subgroup_is_subgroup,
+   p256_subgroup_cyclic, p256_subgroup_card.
+
+   Full-group cardinality is separate: cofactorOneInstances supplies
+   p256_card and p256_generated_full_group. *)
+
 Theory p256Instance
 Ancestors
   namedPrimeFields ellipticCertificates ellipticTorsion fieldInstances

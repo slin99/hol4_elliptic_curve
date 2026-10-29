@@ -1,3 +1,24 @@
+(* -------------------------------------------------------------------------
+   Elliptic-curve arithmetic and order certificate rules
+
+   Documentation
+   Support checked inverse witnesses and binary evaluation of the existing
+   short-Weierstrass group exponent. Points use ECAffine x y or ECInfinity;
+   curve validity and point membership remain explicit hypotheses.
+
+   Public interface
+   - sw_field_sum_inv_witness, sw_field_prod_inv_witness and
+     sw_GF_prod_inv_witness justify proposed inverses by checked operations.
+   - sw_scalar_double and sw_scalar_double_add provide binary scalar steps.
+   - sw_prime_generator_order deduces exact prime order from a nonidentity
+     point annihilated by that prime, with curve/membership hypotheses.
+   - sw_GF_prod_exp relates numeric field powers to modular powers;
+     finite_field_cube_nonresidue supplies a checked cubic obstruction.
+
+   The ML scalar libraries propose coordinates and inverse values; these
+   rules require proofs and do not introduce a new scalar operation.
+   ------------------------------------------------------------------------- *)
+
 Theory ellipticCertificates
 Ancestors
   shortWeierstrass shortWeierstrassGroup ellipticTorsion fieldInstances

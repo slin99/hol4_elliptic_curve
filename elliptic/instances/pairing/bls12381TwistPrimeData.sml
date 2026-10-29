@@ -1,3 +1,8 @@
+(* Lucas witness data for BLS12-381 G2 cofactor primality proofs.
+   The certificates list is consumed by PRIME_CERT_CONV in
+   bls12381TwistCardinality. This module supplies untrusted numerical
+   inputs, not theorems; the conversion must check their dependencies. *)
+
 structure bls12381TwistPrimeData :> bls12381TwistPrimeData =
 struct
 

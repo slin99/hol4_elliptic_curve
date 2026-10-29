@@ -1,3 +1,19 @@
+(* -------------------------------------------------------------------------
+   BN254 degree-twelve irreducibility certificate
+
+   Documentation
+   bn254_fp12_poly_def names X^12 - 18*X^6 + 82 over GF bn254_p,
+   using ascending canonical coefficients (polynomial zero is []).
+
+   Public interface
+   bn254_fp12_poly_monic and bn254_fp12_poly_degree establish the modulus
+   shape; bn254_fp12_irreducible proves irreducibility for constructing
+   bn254_fp12 in pairingDegree12Fields.
+
+   The proof uses bn254_p_prime and polynomialCertificateLib.RABIN12_RULE:
+   ML proposes remainders/Bezout data and HOL checks the Rabin premises.
+   ------------------------------------------------------------------------- *)
+
 Theory bn254Degree12Certificate
 Ancestors
   namedPrimeFields polynomialCertificate

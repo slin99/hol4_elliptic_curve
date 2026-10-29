@@ -1,3 +1,26 @@
+(* ------------------------------------------------------------------------- *)
+(* Polynomial Identities Supporting Curve Associativity                      *)
+(* ------------------------------------------------------------------------- *)
+(*
+   Documentation
+
+   Coordinate identities over the existing commutative Ring model used by
+   shortWeierstrassGroup. Denominator inverses are explicit variables with
+   inverse equations; no field division or curve-group structure is assumed.
+   Local arithmetic notation denotes ring_add, ring_mul and ring_pow.
+
+   Main results:
+     sw_secant_equations_algebra, sw_tangent_equations_algebra
+                                Derive low-degree slope equations.
+     sw_assoc_outputs_algebra   Compare the final coordinate formulas.
+     sw_assoc_coordinates_algebra
+                                Coordinate identity used in associativity.
+
+   IDEAL_USING_TAC supplies polynomial ideal certificates to ringLib's proof
+   machinery. These lemmas support the group proof; they are not a standalone
+   assertion of the group law without its geometric case analysis.
+*)
+
 Theory swAssocAlgebra
 Ancestors
   ringLib

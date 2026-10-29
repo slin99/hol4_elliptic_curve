@@ -1,3 +1,22 @@
+(* -------------------------------------------------------------------------
+   Kernel computation equations for certificate arithmetic
+
+   Documentation
+   Supply a binary modular-power program in the kernel CV language and
+   computational views of GF addition/multiplication. The modular-power
+   identities need no primality assumption, including when the modulus is zero.
+
+   Public interface
+   - certificate_cv_modpow_def specifies the CV result;
+     certificate_cv_modpow_eq is its executable binary recursion equation.
+   - certificate_modpow_to_cv connects natural a ** e MOD n to that program.
+   - certificate_gf_add and certificate_gf_mult expose numeric GF operations
+     without unfolding the full field record.
+
+   certificateComputeLib uses these proved equations for conversions;
+   evaluating candidate arithmetic is not an additional oracle.
+   ------------------------------------------------------------------------- *)
+
 Theory certificateCompute
 Ancestors
   arithmetic cv fieldInstances

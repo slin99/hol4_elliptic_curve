@@ -1,3 +1,27 @@
+(* ------------------------------------------------------------------------- *)
+(* Short-Weierstrass Curves                                                  *)
+(* ------------------------------------------------------------------------- *)
+(*
+   Documentation
+
+   Mathematical points on y^2 = x^3 + a*x + b over the modern fieldTheory.
+   The datatype contains ECInfinity and ECAffine x y; the latter constructor
+   alone does not assert field membership or the curve equation.
+
+   Definitions:
+     sw_curve_rhs_def          x^3 + a*x + b using the field record operations.
+     sw_discriminant_def       -16 * (4*a^3 + 27*b^2).
+     ShortWeierstrassCurve_def Field, coefficients in the carrier,
+                              characteristic not 2 or 3, nonzero discriminant.
+     sw_on_curve_def           Infinity, or carrier coordinates satisfying
+                              the equation.
+     sw_points_def             The set of points satisfying sw_on_curve.
+
+   Membership rewrites:
+     sw_on_curve_ECInfinity, sw_on_curve_ECAffine, sw_points_member.
+   Addition and the group theorem are in shortWeierstrassGroup.
+*)
+
 Theory shortWeierstrass
 Ancestors
   field

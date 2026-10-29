@@ -1,3 +1,19 @@
+(* -------------------------------------------------------------------------
+   BLS12-381 degree-twelve irreducibility certificate
+
+   Documentation
+   bls12381_fp12_poly_def names X^12 - 2*X^6 + 2 over GF bls12381_p,
+   using ascending canonical coefficients (polynomial zero is []).
+
+   Public interface
+   bls12381_fp12_poly_monic and bls12381_fp12_poly_degree establish the
+   modulus shape; bls12381_fp12_irreducible proves irreducibility for
+   constructing bls12381_fp12 in pairingDegree12Fields.
+
+   The proof uses bls12381_p_prime and polynomialCertificateLib.RABIN12_RULE:
+   ML proposes remainders/Bezout data and HOL checks the Rabin premises.
+   ------------------------------------------------------------------------- *)
+
 Theory bls12381Degree12Certificate
 Ancestors
   namedPrimeFields polynomialCertificate

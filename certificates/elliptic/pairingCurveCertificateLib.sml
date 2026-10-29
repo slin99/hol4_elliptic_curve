@@ -1,3 +1,13 @@
+(* Checked quadratic-field arithmetic and curve certificates.
+   See pairingCurveCertificateLib.sig for argument order and branch layout.
+   FIELD_CONV and SCALAR_CONV support numeric PolyModRing (GF p) [1;0;1],
+   with canonical ascending lists ([] zero), not arbitrary extension towers.
+   Supply closed prime and field proofs, plus matching curve and membership
+   proofs for scalars. SCALAR_CERTIFICATE_TAC / SCALAR_STEP_TAC and
+   POWER_CERTIFICATE_TAC / POWER_STEP_TAC expose bounded operation proofs.
+   Candidate coordinates, inverses and power trajectories are never theorems:
+   checked operations against the existing quotient field justify each step. *)
+
 structure pairingCurveCertificateLib :> pairingCurveCertificateLib =
 struct
 

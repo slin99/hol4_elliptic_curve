@@ -1,3 +1,32 @@
+(* ------------------------------------------------------------------------- *)
+(* Homogeneous Coordinates for Short-Weierstrass Curves                       *)
+(* ------------------------------------------------------------------------- *)
+(*
+   Documentation
+
+   Ordinary homogeneous triples (X,Y,Z), with affine coordinates (X/Z,Y/Z);
+   these are not Jacobian coordinates. Equivalence is common nonzero scaling.
+   sw_projective_valid excludes the zero triple, but does not assert the
+   curve equation. sw_projective_rep relates a valid curve representative to
+   an sw_point; infinity representatives have X = Z = 0 and Y <> 0.
+
+   Definitions:
+     sw_projective_valid_def, sw_projective_scale_def, sw_projective_equiv_def.
+     sw_point_to_projective_def, sw_projective_to_point_def.
+     sw_projective_rep_def, sw_projective_on_curve_def.
+
+   Main results (with the stated field/carrier hypotheses):
+     sw_point_projective_roundtrip    Decode an embedded curve point.
+     sw_projective_equiv_refl, sw_projective_equiv_sym,
+       sw_projective_equiv_trans      Equivalence on valid triples.
+     sw_projective_equiv_iff_to_point Equal decoding, with infinity guards.
+     sw_projective_rep_infinity, sw_projective_rep_affine,
+       sw_projective_rep_scale       Representation and scaling.
+
+   The total decoder is not a validity test: it maps every Z = 0 triple to
+   ECInfinity, including triples that are not curve representatives.
+*)
+
 Theory shortWeierstrassProjective
 Ancestors
   shortWeierstrass

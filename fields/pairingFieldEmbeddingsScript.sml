@@ -1,3 +1,24 @@
+(* -------------------------------------------------------------------------
+   Quadratic-to-degree-twelve field embeddings
+
+   Documentation
+   bn254_fp2_to_fp12_def and bls12381_fp2_to_fp12_def substitute i in
+   canonical ascending polynomial representatives and reduce modulo the
+   degree-twelve polynomial. Here w = X, and i = w^6-9 for BN254 or
+   i = w^6-1 for BLS12-381. Zero is [], including in constant inclusions.
+
+   Public interface
+   - *_fp12_w_def and *_fp12_i_def name the distinguished representatives;
+     *_fp12_i_relation and *_fp2_modulus_vanishes justify substitution.
+   - bn254_fp2_to_fp12_field_homo, bls12381_fp2_to_fp12_field_homo and
+     matching *_inj theorems prove homomorphism and carrier injectivity.
+   - *_fp2_to_fp12_constant fixes residues c < p, *_fp2_to_fp12_i maps
+     [0;1] to i, and *_fp12_w_sixth computes w^6.
+
+   Homomorphism and injectivity concern the named field carriers, not
+   arbitrary lists; concrete computations use checked quotient conversions.
+   ------------------------------------------------------------------------- *)
+
 Theory pairingFieldEmbeddings
 Ancestors
   namedPrimeFields fieldInstances pairingQuadraticFields pairingDegree12Fields

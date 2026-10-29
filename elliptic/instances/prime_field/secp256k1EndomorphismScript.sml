@@ -1,3 +1,20 @@
+(* secp256k1 complex multiplication and its scalar eigenvalue.
+
+   Documentation
+   secp256k1_endo_def specializes sw_cm_map: multiply an affine x-coordinate
+   by the nontrivial cube root secp256k1_beta and preserve infinity.
+   secp256k1_lambda is the matching scalar-field cube root.
+
+   Constants: secp256k1_beta_def, secp256k1_lambda_def.
+   Certificates: secp256k1_beta_certificate, secp256k1_lambda_certificate.
+   Structure and scalar compatibility: secp256k1_endo_group,
+   secp256k1_endo_scalar.
+   Eigenvalue: secp256k1_endo_generator, secp256k1_endo_is_lambda_scalar.
+
+   The last result applies to every point in sw_points, using the
+   cofactor-one full-group identification, not just to the generator.
+   Both scalar-compatibility results require point membership. *)
+
 Theory secp256k1Endomorphism
 Ancestors
   secp256k1Instance cofactorOneInstances ellipticCMMap ellipticMorphisms

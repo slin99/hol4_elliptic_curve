@@ -1,3 +1,35 @@
+(* ------------------------------------------------------------------------- *)
+(* Scalars, Rational Torsion and Generated Curve Subgroups                    *)
+(* ------------------------------------------------------------------------- *)
+(*
+   Documentation
+
+   Scalar multiplication is the existing group exponent (sw_group r a b).exp.
+   sw_torsion_group_def is the kernel of multiplication by n on the rational
+   curve group over r; it is not torsion over an algebraic closure.
+
+   Scalars:
+     sw_scalar_zero, sw_scalar_one, sw_scalar_closed, sw_scalar_add,
+       sw_scalar_mult, sw_scalar_distrib, sw_scalar_neg, sw_scalar_endo.
+   Torsion:
+     sw_torsion_carrier, sw_torsion_member, sw_torsion_subgroup,
+       sw_torsion_group, sw_torsion_normal, sw_torsion_finite_group.
+     sw_torsion_zero             n = 0 gives the whole curve group.
+     sw_torsion_one_carrier      n = 1 gives only infinity.
+     sw_torsion_order, sw_torsion_infinite_order
+                                Membership iff point order divides n;
+                                HOL represents infinite order by 0.
+   Generated subgroups and cofactors:
+     sw_generated_member, sw_generated_subset, sw_generated_subgroup,
+       sw_generated_cyclic, sw_generator_card, sw_point_order_divides_card.
+     sw_cofactor_one_generated, sw_cofactor_clearing,
+       sw_cofactor_clearing_order.
+
+   Retain the curve, membership and finiteness hypotheses of each theorem.
+   Cofactor clearing proves n-torsion membership; it does not by itself
+   identify a particular generated subgroup or prove a nonzero result.
+*)
+
 Theory ellipticTorsion
 Ancestors
   shortWeierstrass shortWeierstrassGroup

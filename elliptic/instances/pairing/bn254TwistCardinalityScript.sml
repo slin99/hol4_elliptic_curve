@@ -1,3 +1,25 @@
+(* BN254 G2: full twist cardinality, cofactor and a full-order point.
+
+   Documentation
+   The curve is the quadratic-field twist y^2 = x^3 + 3/(9+i), i^2 = -1,
+   represented by normalized coefficient lists in bn254_fp2. A certified
+   full-order point, absence of nonidentity two-torsion, and the elementary
+   point bound determine the rational-point count.
+
+   Definitions: bn254_g2_full_cofactor_def (2*p - n),
+   bn254_g2_full_order_def, bn254_g2_full_generator_def.
+   Order: bn254_g2_full_generator_scalar_tests,
+   bn254_g2_full_generator_order.
+   Cardinality: bn254_g2_cardinality, bn254_g2_group_cardinality,
+   bn254_g2_full_cofactor_relation, bn254_g2_prime_subgroup_is_proper.
+   Clearing: bn254_g2_cofactor_clearing,
+   bn254_g2_full_generator_cofactor_order.
+
+   The full-order certificate point is distinct from the standard
+   prime-order G2 generator. Cofactor clearing is stated into n-torsion;
+   do not silently replace that conclusion with Generated membership.
+   Numerical coordinates and Lucas witnesses are untrusted proof inputs. *)
+
 Theory bn254TwistCardinality
 Ancestors
   pairingTwistInstances pairingQuadraticFields namedPrimeFields

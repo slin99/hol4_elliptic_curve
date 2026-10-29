@@ -1,3 +1,23 @@
+(* ------------------------------------------------------------------------- *)
+(* Change of Short-Weierstrass Coordinates                                    *)
+(* ------------------------------------------------------------------------- *)
+(*
+   Documentation
+
+   sw_scale_point_def fixes infinity and maps (x,y) to (u^2*x,u^3*y).
+   The target coefficients are u^4*a and u^6*b. This is a change between
+   affine curve models, not common scaling of a homogeneous triple.
+
+   Main results:
+     sw_scale_curve, sw_scale_on_curve, sw_scale_points.
+     sw_scale_inverse, sw_scale_add, sw_scale_group_homo, sw_scale_group_iso.
+     sw_scale_scalar, sw_scale_order, sw_scale_torsion.
+
+   Group isomorphism and transport results require ShortWeierstrassCurve,
+   u in the field carrier and u <> 0; the inverse uses the field inverse of u.
+   See pairingTwistMorphisms for composition with extension-field embeddings.
+*)
+
 Theory ellipticScaling
 Ancestors
   ellipticMorphisms ringLib

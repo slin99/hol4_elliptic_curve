@@ -1,3 +1,23 @@
+(* Injective twist embeddings into the degree-12 curve groups.
+
+   Documentation
+   A quadratic-to-degree-12 field inclusion is followed by Weierstrass
+   coordinate scaling: by w for BN254 and inverse w for BLS12-381.
+   The targets are y^2 = x^3 + 3 and y^2 = x^3 + 4 over the respective
+   fp12 fields. Field and degree-12 certificate theories supply the
+   algebraic premises for these concrete specializations.
+
+   Definitions: bn254_fp12_curve_group_def, bls12381_fp12_curve_group_def,
+   bn254_twist_embedding_def, bls12381_twist_embedding_def.
+   For each prefix bn254_twist and bls12381_twist:
+   Structure: *_embedding_group_homo, *_embedding_inj.
+   On source-carrier points: *_embedding_scalar, *_embedding_order.
+   Standard generators: *_embedded_generator_order.
+   Target curves: bn254_fp12_curve, bls12381_fp12_curve.
+
+   These maps are injective group homomorphisms, not surjections onto
+   all extension-field rational points. No pairing function is defined. *)
+
 Theory pairingTwistMorphisms
 Ancestors
   namedPrimeFields fieldInstances pairingQuadraticFields pairingDegree12Fields

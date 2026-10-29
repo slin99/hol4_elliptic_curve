@@ -1,3 +1,11 @@
+(* Explicit ideal-membership certificates for ringLib; see idealCertificateLib.sig.
+   IDEAL_RULE r [(f1,c1), ...] (l=u) checks l-u = SUM ci*(li-ui), where
+   fi proves li=ui. The caller supplies the coefficients; this is not an ideal
+   search procedure. Accepted expressions are integer polynomials in ringLib
+   syntax, with natural-literal powers and no division or opaque atoms.
+   The returned theorem retains premise hypotheses and carrier obligations.
+   This interface uses ringLib expressions, not univariate coefficient lists. *)
+
 structure idealCertificateLib :> idealCertificateLib =
 struct
 

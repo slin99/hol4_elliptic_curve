@@ -1,3 +1,11 @@
+(* Numeric polynomial quotient conversions; see pairingFieldCertificateLib.sig.
+   QUOTIENT_CONV prime modulus evaluates identities, sums, products and natural
+   powers in PolyModRing (GF p) modulus, using checked polynomial remainders.
+   Supply prime p with literal p and a canonical ascending monic modulus of
+   positive degree; [] is zero. Power evaluation also checks base membership.
+   Irreducibility is not required for these quotient-ring computations, and
+   abstract quotient inverses are deliberately left unevaluated. *)
+
 structure pairingFieldCertificateLib :> pairingFieldCertificateLib =
 struct
 

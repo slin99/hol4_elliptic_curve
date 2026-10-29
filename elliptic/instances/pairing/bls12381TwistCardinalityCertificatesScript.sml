@@ -1,3 +1,25 @@
+(* BLS12-381 G2 cardinality: arithmetic and complex-multiplication inputs.
+
+   Documentation
+   Certificate computations concern y^2 = x^3 + 4+4*i in bls12381_fp2,
+   using ascending coefficient lists and i^2 = -1. This theory separates
+   the long scalar and field-power checks from bls12381TwistCardinality.
+
+   Data: bls12381_g2_full_cofactor_def, bls12381_g2_torsion_factor_def,
+   bls12381_g2_large_order_def, bls12381_g2_large_point_def,
+   bls12381_g2_second_point_def, bls12381_g2_cardinality_subgroup_def.
+   Arithmetic: bls12381_g2_full_cofactor_polynomial,
+   bls12381_g2_full_cofactor_factorization.
+   Scalar/CM interface: bls12381_g2_large_point_member,
+   bls12381_g2_large_point_scalar_tests, bls12381_g2_cm_endomorphism,
+   bls12381_g2_cm_third, bls12381_g2_cm_scalar_exclusions.
+   Field-power interface: bls12381_g2_cubic_nonresidue_certificate.
+
+   The two-factor cardinality subgroup is not the standard prime-order
+   G2 subgroup. The full cofactor is not an effective hash-to-curve
+   cofactor. Numerical witnesses propose claims for HOL proofs; external
+   discovery is not a proof of their validity. *)
+
 Theory bls12381TwistCardinalityCertificates
 
 (* Kernel-checked scalar and field-power certificates used by the readable

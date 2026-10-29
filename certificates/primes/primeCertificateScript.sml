@@ -1,3 +1,21 @@
+(* -------------------------------------------------------------------------
+   Recursive Lucas primality certificates
+
+   Documentation
+   prime_certificate_check concludes prime n from n > 1, a complete
+   factorisation n-1 = PROD fs, EVERY prime fs, and the Lucas modular
+   power tests for a witness a. Repeated prime factors are represented by
+   repeated entries in fs, not by a separate exponent datatype.
+
+   Public interface
+   - prime_certificate_check is the checker used by primeCertificateLib.
+   - prime_certificate_divides_product exposes prime divisibility of a product.
+
+   Candidate factors and witnesses are untrusted data. Recursive proofs of
+   factor primality and proofs of all arithmetic premises are required;
+   accepting a data table alone does not establish primality.
+   ------------------------------------------------------------------------- *)
+
 Theory primeCertificate
 Ancestors
   arithmetic divides gcd list rich_list number prime ring pred_set combinatorics

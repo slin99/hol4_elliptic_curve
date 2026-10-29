@@ -1,3 +1,24 @@
+(* ------------------------------------------------------------------------- *)
+(* Cube-Root Coordinate Endomorphism                                         *)
+(* ------------------------------------------------------------------------- *)
+(*
+   Documentation
+
+   sw_cm_map_def fixes infinity and sends (x,y) to (beta*x,y).
+   On a short-Weierstrass curve with a = 0, beta in the field carrier and
+   beta^3 = 1 give a curve-group endomorphism and an isomorphism.
+   beta need not be a primitive cube root: beta = 1 is allowed.
+
+   Main results:
+     sw_cm_map_on_curve, sw_cm_map_points, sw_cm_map_add.
+     sw_cm_map_third          Three applications give the original point.
+     sw_cm_map_group_homo, sw_cm_map_group_endo, sw_cm_map_group_iso.
+     sw_cm_map_scalar         Compatibility with scalar multiplication.
+
+   This is the generic coordinate map. Concrete eigenvalue identities and
+   subgroup membership criteria are in secp256k1Endomorphism.
+*)
+
 Theory ellipticCMMap
 Ancestors
   ellipticMorphisms ringLib

@@ -1,3 +1,27 @@
+(* ------------------------------------------------------------------------- *)
+(* Curve Maps Induced by Field Maps                                          *)
+(* ------------------------------------------------------------------------- *)
+(*
+   Documentation
+
+   sw_map_point_def applies a coefficient-field map to both affine coordinates
+   and fixes ECInfinity. Field homomorphisms transport the curve with
+   coefficients a,b to the curve with coefficients f a,f b.
+
+   Field-map transport:
+     sw_field_homo_curve, sw_field_homo_points, sw_field_homo_add,
+       sw_field_homo_group.
+     sw_field_iso_points_bij, sw_field_iso_group.
+     sw_field_endo_group        Coefficient-fixing field endomorphisms.
+   Group-map consequences:
+     sw_curve_homo_scalar, sw_curve_endo_scalar, sw_curve_iso_order.
+     sw_curve_homo_torsion, sw_curve_iso_torsion, sw_field_iso_torsion.
+
+   Theorems carry the source curve and target field hypotheses explicitly.
+   A field inclusion need not cover all rational points over the larger
+   field; the group-isomorphism results require FieldIso, not just FieldHomo.
+*)
+
 Theory ellipticMorphisms
 Ancestors
   shortWeierstrass shortWeierstrassGroup ellipticTorsion fieldMap

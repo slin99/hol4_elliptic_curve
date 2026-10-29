@@ -1,3 +1,13 @@
+(* Checked polynomial arithmetic over GF p; see polynomialCertificateLib.sig.
+   The context takes a theorem of prime <numeral> and a canonical ascending
+   num-list monic modulus of positive degree; [] represents polynomial zero.
+   ARITH_CONV / BOUNDED_CONV normalize bounded list arithmetic; REMAINDER_CONV
+   and MODPOW_CONV prove remainders without unfolding abstract division.
+   RABIN12_RULE returns irreducibility for a degree-twelve modulus;
+   NO_ROOTS_RULE returns an empty root set when its certificate checks.
+   ML division, powering support and Euclid calculations only propose data:
+   HOL proves the bounded remainder/Bezout identities before using the rules. *)
+
 structure polynomialCertificateLib :> polynomialCertificateLib =
 struct
 

@@ -1,3 +1,11 @@
+(* Certificate arithmetic conversions; see certificateComputeLib.sig.
+   NAT_CONV normalizes natural arithmetic without rewriting Boolean structure.
+   EVAL_COMPSET / EVAL_CONV snapshot the currently loaded compute equations;
+   retain the resulting context for repeated bounded calculations.
+   MODPOW_CONV checks closed a ** e MOD n by the proved CV binary program,
+   rather than constructing the unreduced power. All results are kernel
+   equalities, not trusted answers from external arithmetic. *)
+
 structure certificateComputeLib :> certificateComputeLib =
 struct
 

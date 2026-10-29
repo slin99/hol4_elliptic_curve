@@ -1,3 +1,25 @@
+(* -------------------------------------------------------------------------
+   Order-three endomorphism certificates for independent generators
+
+   Documentation
+   Abstract finite-group results supporting complex-multiplication curve
+   certificates. No curve or endomorphism is assumed valid by its name:
+   callers supply GroupEndo, f^3 = identity, exact point order, divisibility,
+   and the required prime-order eigenvalue exclusions.
+
+   Public interface
+   - cm_cube_root_coprime restricts cubic roots modulo a prime;
+     cm_cyclic_order_line identifies a cyclic subgroup of a specified order.
+   - cm_order_three_automorphism and cm_order_three_eigenvalue describe
+     endomorphisms whose third iterate is identity.
+   - cm_independent establishes independence of P and
+     Q = g.exp (f P) (M DIV d), under the stated exclusion hypotheses.
+   - cm_independent_product_card and cm_independent_card_bound yield the
+     subgroup-product size M*d and the corresponding ambient lower bound.
+
+   The independence argument does not require coprimality of d and M DIV d.
+   ------------------------------------------------------------------------- *)
+
 Theory ellipticCMCertificates
 Ancestors
   group number cardinal prime ring

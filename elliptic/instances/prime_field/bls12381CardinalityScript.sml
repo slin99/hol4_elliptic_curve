@@ -1,3 +1,25 @@
+(* BLS12-381 G1: full rational-point cardinality and full cofactor.
+
+   Documentation
+   This concerns y^2 = x^3 + 4 over bls12381_base_field, not merely the
+   standard generator's subgroup. A product of two generated subgroups,
+   with independence established using complex multiplication, supplies
+   the cardinality divisor; the elementary point bound fixes the count.
+
+   Certificate data: bls12381_full_cofactor_def, bls12381_torsion_factor_def,
+   bls12381_large_order_def, bls12381_large_point_def,
+   bls12381_second_point_def, bls12381_cm_beta_def.
+   Arithmetic and product: bls12381_full_cofactor_factorization,
+   bls12381_full_certificate_subgroup_def,
+   bls12381_full_certificate_subgroup_product_card,
+   bls12381_full_certificate_subgroup_card.
+   Main interface: bls12381_g1_full_cardinality,
+   bls12381_g1_full_cofactor, bls12381_g1_prime_subgroup_not_full.
+
+   The full cofactor is not an effective hash-to-curve cofactor.
+   Coordinates and primality witnesses are proof inputs, not trusted
+   external point-count or primality verdicts. *)
+
 Theory bls12381Cardinality
 Ancestors
   bls12381G1Instance ellipticCardinality ellipticCMMap ellipticCMCertificates

@@ -1,3 +1,25 @@
+(* BLS12-381 G2: full twist cardinality and full-cofactor clearing.
+
+   Documentation
+   Over bls12381_fp2, this combines the arithmetic certificates from
+   bls12381TwistCardinalityCertificates with a CM-independent product of
+   cyclic subgroups. No nonidentity two-torsion and the elementary point
+   bound identify its size with the full rational-point cardinality.
+
+   Orders: bls12381_g2_large_point_order, bls12381_g2_second_point_order.
+   Product subgroup: bls12381_g2_cardinality_subgroup_is_subgroup,
+   bls12381_g2_cardinality_subgroup_card.
+   Main interface: bls12381_g2_full_cardinality,
+   bls12381_g2_group_card, bls12381_g2_subgroup_is_proper,
+   bls12381_g2_full_cofactor_clearing.
+   Supporting public facts: bls12381_g2_no_two_torsion,
+   bls12381_g2_cofactor_primes, bls12381_g2_cm_eigenvalue_exclusion.
+
+   The full count is bls12381_g2_full_cofactor * bls12381_n; the standard
+   generated subgroup has size bls12381_n. Clearing requires a curve
+   point and concludes membership in n-torsion, not explicitly in that
+   generated subgroup. Effective hash-to-curve cofactors are not used. *)
+
 Theory bls12381TwistCardinality
 Ancestors
   bls12381TwistCardinalityCertificates

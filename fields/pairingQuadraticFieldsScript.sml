@@ -1,3 +1,23 @@
+(* -------------------------------------------------------------------------
+   Quadratic fields for BN254 and BLS12-381
+
+   Documentation
+   Construct bn254_fp2 and bls12381_fp2 as PolyModRing (GF p) [1;0;1].
+   Representatives are canonical ascending coefficient lists, with [] zero;
+   field operations are the existing polynomial quotient operations.
+
+   Public interface
+   - prime_3mod4_quadratic_irreducible proves irreducibility of X^2+1
+     under prime p and p MOD 4 = 3. finite_field_3mod4_no_square_minus_one
+     supplies the finite-field obstruction (including char r <> 2).
+   - bn254_fp2_def, bls12381_fp2_def and their *_poly_def definitions name
+     the fields and moduli. The matching *_irreducible and *_finite_field
+     theorems discharge the construction's hypotheses for these primes.
+   - *_card, *_char, *_carrier, *_coefficients_above_one and
+     *_frobenius_square describe size, characteristic and representatives;
+     the Frobenius identity assumes membership in the corresponding carrier.
+   ------------------------------------------------------------------------- *)
+
 Theory pairingQuadraticFields
 Ancestors
   namedPrimeFields fieldInstances polyFieldModulo polyIrreducible

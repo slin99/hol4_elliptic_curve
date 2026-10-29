@@ -1,3 +1,23 @@
+(* -------------------------------------------------------------------------
+   Degree-twelve fields for BN254 and BLS12-381
+
+   Documentation
+   bn254_fp12_def and bls12381_fp12_def construct PolyModRing fields from
+   the named primes and the irreducibility results in the degree-twelve
+   certificate theories. Elements are canonical ascending coefficient lists
+   of degree below twelve, with [] zero, not a separate tower datatype.
+
+   Public interface
+   - bn254_fp12_finite_field and bls12381_fp12_finite_field establish the
+     fields; matching *_card and *_char give p^12 elements and characteristic p.
+   - *_carrier and *_coefficients_above_eleven describe representatives;
+     *_poly_coefficients specifies the sparse defining polynomials.
+   - *_frobenius_twelfth gives x^(p^12) = x for carrier elements.
+
+   The imported certificate theorems, rather than unchecked ML polynomial
+   calculations, justify the irreducible quotient construction.
+   ------------------------------------------------------------------------- *)
+
 Theory pairingDegree12Fields
 Ancestors
   namedPrimeFields bn254Degree12Certificate bls12381Degree12Certificate

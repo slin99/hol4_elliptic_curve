@@ -1,3 +1,30 @@
+(* ------------------------------------------------------------------------- *)
+(* Elementary Curve Cardinality and Exact-Order Certificates                  *)
+(* ------------------------------------------------------------------------- *)
+(*
+   Documentation
+
+   Finite short-Weierstrass curves have at most two affine points per
+   x-coordinate and one point at infinity. This is an elementary bound,
+   not Hasse's theorem. Curve results retain ShortWeierstrassCurve and
+   FiniteField hypotheses where needed.
+
+   Cardinality:
+     sw_x_fiber_card, sw_points_card_bound    CARD points <= 2*CARD field + 1.
+     sw_no_two_torsion_odd_card              No nonidentity 2-torsion implies
+                                            odd cardinality.
+     sw_cardinality_from_odd_divisor,
+       sw_cardinality_from_odd_subgroup,
+       sw_cardinality_from_odd_point_order   Identify the full cardinality
+                                            using the bound and torsion test.
+     sw_root_free_no_two_torsion             Root-free cubic gives that test.
+
+   Exact order:
+     group_exact_order_certificate, sw_exact_order_certificate.
+   To establish order N > 0, check [N]P = O and [N/q]P <> O for every prime
+   divisor q of N. An annihilation equation alone does not prove exact order.
+*)
+
 Theory ellipticCardinality
 Ancestors
   shortWeierstrass shortWeierstrassGroup ellipticTorsion cardinal prime

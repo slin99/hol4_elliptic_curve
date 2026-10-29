@@ -1,3 +1,22 @@
+(* Cofactor-one cardinalities for secp256k1, P-256 and BN254 G1.
+
+   Documentation
+   Starting from the concrete generator-order and finite-field results,
+   root-free cubic certificates exclude nonidentity two-torsion. The
+   elementary point bound and odd-divisor argument determine the full
+   rational-point cardinality; no curve-order formula is assumed here.
+
+   Cofactor definitions: secp256k1_cofactor_def, p256_cofactor_def,
+   bn254_g1_cofactor_def (each is 1).
+   Cardinalities: secp256k1_card, p256_card, bn254_g1_card.
+   Cofactor relations: secp256k1_cofactor, p256_cofactor, bn254_g1_cofactor.
+   Full-group identifications: secp256k1_generated_full_group,
+   p256_generated_full_group, bn254_g1_generated_full_group.
+
+   Each curve also exports *_cubic_root_free and *_no_two_torsion.
+   The equality of Generated with the full sw_group is specific to these
+   three curves; it does not extend to BLS12-381 G1 or the G2 twists. *)
+
 Theory cofactorOneInstances
 Ancestors
   secp256k1Instance p256Instance bn254G1Instance ellipticCardinality

@@ -1,3 +1,13 @@
+(* Checked binary short-Weierstrass scalar evaluation.
+   See ellipticCertificateLib.sig for theorem inputs and tactic branch layout.
+   BINARY_SCALAR_CONV accepts an addition conversion and curve/membership
+   proofs over any matching field representation. SCALAR_CONV specializes to
+   literal GF p points using prime, curve and point-membership theorems.
+   The *_CERTIFICATE_TAC interfaces expose bounded milestone or operation
+   goals, discharged by matching *_STEP_TAC calls; proposed trajectories and
+   modular inverses are untrusted. Successful conversion equalities are cached
+   per converter, and input theorem hypotheses remain part of the proof. *)
+
 structure ellipticCertificateLib :> ellipticCertificateLib =
 struct
 

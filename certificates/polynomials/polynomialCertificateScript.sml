@@ -1,3 +1,25 @@
+(* -------------------------------------------------------------------------
+   Polynomial certificate checking theorems
+
+   Documentation
+   Check bounded identities instead of evaluating abstract polynomial
+   division or expanding large powers. Polynomial lists have ascending
+   coefficients and canonical zero []; the results below are over abstract
+   rings/fields, with Poly and monicity obligations explicit in each theorem.
+
+   Public interface
+   - polynomial_certificate_remainder checks a = q*f+b and the degree bound.
+   - polynomial_certificate_pow_even / polynomial_certificate_pow_odd and
+     polynomial_certificate_frobenius_compose support modular powering.
+   - polynomial_certificate_bezout and polynomial_certificate_no_roots
+     turn checked Bezout/remainder witnesses into factor or root exclusions.
+   - polynomial_certificate_rabin12 proves degree-twelve irreducibility
+     over a FiniteField, using Frobenius tests at degrees 4, 6 and 12.
+
+   ML supplies candidate quotients, remainders and Bezout coefficients;
+   these theorems require their identities to be proved in HOL.
+   ------------------------------------------------------------------------- *)
+
 Theory polynomialCertificate
 Ancestors
   ffMaster polyIrreducible polyDivides polyDivision polyRoot
